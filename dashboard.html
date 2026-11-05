@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خانه‌حساب | داشبورد</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        body { padding: 24px; }
+        .dash-card {
+            max-width: 720px; margin: 40px auto;
+            background: var(--color-surface); padding: 32px;
+            border-radius: var(--radius); box-shadow: var(--shadow-md);
+        }
+        .dash-card h2 { color: var(--color-primary); margin-bottom: 16px; }
+        .info-row { display: flex; gap: 12px; margin-bottom: 8px; font-size: 14px; }
+        .info-row strong { color: var(--color-text-muted); min-width: 120px; }
+    </style>
+</head>
+<body>
+    <div class="dash-card">
+        <h2>داشبورد (فاز ۱)</h2>
+        <div class="info-row"><strong>ایمیل:</strong><span id="user-email">—</span></div>
+        <div class="info-row"><strong>نام:</strong><span id="user-name">—</span></div>
+        <div class="info-row"><strong>شناسه:</strong><span id="user-id" dir="ltr" style="font-family:monospace; font-size:12px;">—</span></div>
+        <button class="btn btn-primary" id="btn-logout" style="margin-top:24px; max-width:200px;">
+            خروج از حساب
+        </button>
+    </div>
+    <script type="module">
+        import { requireAuth, signOut } from '/js/auth.js';
+        import { supabase } from '/js/services/supabase-client.js';
+
+        const user = await requireAuth();
+        if (user) {
+            document.getElementById('user-email').textContent = user.email;
+            document.getElementById('user-id').textContent = user.id;
+
+            const { data: profile } = await supabase
+                .from('profiles').select('full_name').eq('id', user.id).single();
+            document.getElementById('user-name').textContent = profile?.full_name || '—';
+        }
+
+        document.getElementById('btn-logout').addEventListener('click', signOut);
+    </script>
+</body>
+</html>
