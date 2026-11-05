@@ -1,0 +1,237 @@
+/* ============================================================
+   خانه‌حساب | استایل پایه (فاز ۱)
+   ============================================================ */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+:root {
+    --color-primary: #065f46;       /* سبز تیره */
+    --color-primary-light: #10b981;
+    --color-bg: #f8fafc;             /* خاکستری روشن */
+    --color-surface: #ffffff;
+    --color-text: #0f172a;
+    --color-text-muted: #64748b;
+    --color-border: #e2e8f0;
+    --color-error: #dc2626;
+    --color-success: #16a34a;
+    --color-warning: #f59e0b;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --transition: 0.2s ease;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    font-family: 'Vazirmatn', -apple-system, 'Segoe UI', Tahoma, sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    direction: rtl;
+    text-align: right;
+    line-height: 1.6;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- صفحهٔ احراز هویت ---------- */
+.auth-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    padding: 24px;
+    background:
+        radial-gradient(circle at top left, rgba(16,185,129,0.08), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(6,95,70,0.06), transparent 40%),
+        var(--color-bg);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 32px;
+    animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.auth-logo h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+/* ---------- تب‌ها ---------- */
+.tabs {
+    display: flex;
+    background: var(--color-bg);
+    border-radius: var(--radius-sm);
+    padding: 4px;
+    margin-bottom: 24px;
+    gap: 4px;
+}
+
+.tab {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.tab.active {
+    background: var(--color-surface);
+    color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ---------- فرم ---------- */
+.form-group { margin-bottom: 16px; }
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--color-text);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-text);
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 0 3px rgba(16,185,129,0.12);
+}
+
+.form-group input:disabled {
+    background: var(--color-bg);
+    cursor: not-allowed;
+}
+
+.form-error {
+    color: var(--color-error);
+    font-size: 12.5px;
+    margin-top: 4px;
+    min-height: 18px;
+}
+
+/* ---------- دکمه‌ها ---------- */
+.btn {
+    width: 100%;
+    padding: 12px 18px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+}
+.btn-primary:hover:not(:disabled) { background: #054f3a; }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-link {
+    background: none;
+    color: var(--color-primary);
+    font-size: 13px;
+    padding: 6px;
+    width: auto;
+}
+.btn-link:hover { text-decoration: underline; }
+
+/* ---------- Spinner ---------- */
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- Toast ---------- */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.toast {
+    padding: 12px 20px;
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    border-right: 4px solid var(--color-primary);
+}
+
+.toast-show { opacity: 1; transform: translateY(0); }
+.toast-success { border-right-color: var(--color-success); }
+.toast-error   { border-right-color: var(--color-error); }
+.toast-warning { border-right-color: var(--color-warning); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+    .auth-card { padding: 24px 20px; }
+    .auth-logo h1 { font-size: 20px; }
+}
