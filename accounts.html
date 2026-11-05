@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#065f46">
+    <title>خانه‌حساب | حساب‌ها</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/jalaali-js@1.2.2/dist/jalaali.min.js"></script>
+</head>
+<body>
+    <main class="page-content">
+        <header class="page-header">
+            <div>
+                <h1>حساب‌های من</h1>
+                <p class="page-subtitle">موجودی لحظه‌ای همهٔ حساب‌های شما</p>
+            </div>
+            <div class="page-actions">
+                <button class="btn btn-secondary" id="btn-transfer">انتقال وجه</button>
+                <button class="btn btn-primary" id="btn-add-account">+ حساب جدید</button>
+            </div>
+        </header>
+
+        <section id="accounts-grid" class="accounts-grid"></section>
+    </main>
+
+    <button class="fab" id="fab-add-tx" aria-label="انتقال وجه">⇄</button>
+
+    <script type="module" src="/js/app-accounts.js"></script>
+</body>
+</html>
