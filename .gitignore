@@ -1,0 +1,48 @@
+# ---------- محیط و اسرار ----------
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+.secret*
+
+# ---------- وابستگی‌ها ----------
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ---------- سیستم‌عامل ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- ادیتور ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---------- لاگ و موقت ----------
+*.log
+logs/
+npm-debug.log*
+*.tmp
+.cache/
+
+# ---------- build / dist ----------
+dist/
+build/
+out/
+.capacitor/
+android/
+ios/
+
+# ---------- Supabase محلی ----------
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+
+# ---------- تست ----------
+coverage/
